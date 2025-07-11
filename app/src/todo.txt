@@ -1,6 +1,10 @@
 - Add hamburger menu to UI with page links
-- Create pages for FizzBuzz, Fibonacci, and FizzBonacci
+- Create UI pages/routes for FizzBuzz, Fibonacci, and FizzBonacci
 - Add welcome page (maybe some nice graphic there?)
 - Fix text parameters to come from constants.js for util.js
 - Rename computeIndex in util.js??? 
 - Fix color palette for UI themes
+- Setup linting
+- Setup unit tests
+- Button to load previous fizzbuzz, fibonacci params into fizzbonacci using local storage?
+- Mobile web app friendly css (media queries)
