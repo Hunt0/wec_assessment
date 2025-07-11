@@ -1,0 +1,6 @@
+- Add hamburger menu to UI with page links
+- Create pages for FizzBuzz, Fibonacci, and FizzBonacci
+- Add welcome page (maybe some nice graphic there?)
+- Fix text parameters to come from constants.js for util.js
+- Rename computeIndex in util.js??? 
+- Fix color palette for UI themes
