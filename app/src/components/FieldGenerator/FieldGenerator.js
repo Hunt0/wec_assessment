@@ -4,7 +4,6 @@ import {
     Grid,
 } from '@mui/material';
 
-
 const FieldGenerator = ({fields, formData, fieldErrors, onFormChange}) => {
     return (
         <Grid container spacing={2} justifyContent="center">

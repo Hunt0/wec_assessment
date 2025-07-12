@@ -40,7 +40,7 @@ export const isPositiveInteger = (value) => {
     return regex.test(value);
 }
 
-export const isText = (value) => {
+export const isAlphaText = (value) => {
     const regex = new RegExp('^[A-Za-z]+$');
     return regex.test(value);
 }

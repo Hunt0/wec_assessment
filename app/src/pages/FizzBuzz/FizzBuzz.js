@@ -22,7 +22,7 @@ import {
     COMPUTE_LENGTH_FIELD,
     FIZZ_BUZZ_FIELDS
 } from 'constants';
-import { isPositiveInteger, isText } from 'util';
+import { isPositiveInteger, isAlphaText } from 'util';
 
 const initFormData = {
     isValid: true,
@@ -51,7 +51,7 @@ const FizzBuzz = () => {
 
     const onFormChange = ({ target: { name, value } }) => {
         let isIntegerField = name === FIZZ_VALUE_FIELD || name === BUZZ_VALUE_FIELD || name === COMPUTE_LENGTH_FIELD;
-        let isValid = isIntegerField ? isPositiveInteger(value) : isText(value);
+        let isValid = isIntegerField ? isPositiveInteger(value) : isAlphaText(value);
 
         setFieldErrors((prevData) => ({
             ...prevData,
