@@ -36,7 +36,6 @@ export const fizzBonacci = () => {
 
 export const isPositiveInteger = (value) => {
     const regex = /^\d+$/;
-    const ret = regex.test(value);
     return regex.test(value);
 }
 

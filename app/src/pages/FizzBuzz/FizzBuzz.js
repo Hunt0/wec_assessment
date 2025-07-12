@@ -67,11 +67,12 @@ const FizzBuzz = () => {
 
     const onReset = () => {
         setFormData(initFormData);
+        setFieldErrors(initFieldErrors);
     }
 
     return (
         <div className="FizzBuzz-Container">
-            <header className="FizzBuzz-Header">FizzBuzz</header>
+            <h1 className="FizzBuzz-Header">FizzBuzz</h1>
             <Form>
                 <FieldGenerator
                     fields={FIZZ_BUZZ_FIELDS}

@@ -16,6 +16,60 @@ export const ALPHA_CHAR_ERROR = "Alphabetical characters only";
 export const POS_INT_TYPE = "POS_INT";
 export const ALPHA_TEXT_TYPE = "ALPHA_TEXT";
 
+export const MUI_THEME_LIGHT = {
+    cssVariables: true,
+    palette: {
+        mode: THEME_LIGHT,
+        primary: {
+            main: '#000000',
+            contrastText: '#FFFFFF',
+        },
+        secondary: {
+            main: '#424242',
+            contrastText: '#FFFFFF',
+        },
+        background: {
+            default: '#FFFFFF',
+            paper: '#F5F5F5', // Slightly off-white for paper
+        },
+        text: {
+            primary: '#000000',
+            secondary: '#424242',
+        },
+        divider: '#E0E0E0',
+    },
+    typography: {
+        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    },
+};
+
+export const MUI_THEME_DARK = {
+    cssVariables: true,
+    palette: {
+        mode: THEME_DARK,
+        primary: {
+            main: '#FFFFFF',
+            contrastText: '#000000',
+        },
+        secondary: {
+            main: '#B0B0B0',
+            contrastText: '#000000',
+        },
+        background: {
+            default: '#121212',
+            paper: '#1E1E1E',
+        },
+        text: {
+            primary: '#FFFFFF',
+            secondary: '#B0B0B0',
+        },
+        divider: '#424242',
+    },
+    typography: {
+        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    },
+}
+
 export const FIZZ_BUZZ_FIELDS = [
     {
         id: "fizz-value",

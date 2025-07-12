@@ -1,24 +1,19 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material';
 import Layout from 'components/Layout/Layout';
 import FizzBuzz from 'pages/FizzBuzz/FizzBuzz';
-import { THEME_LIGHT, THEME_DARK, LOCAL_COLOR_THEME } from 'constants';
+import {
+    THEME_LIGHT,
+    THEME_DARK,
+    MUI_THEME_LIGHT,
+    MUI_THEME_DARK,
+    LOCAL_COLOR_THEME
+} from 'constants';
 
-const darkTheme = createTheme({
-    cssVariables: true,
-    palette: {
-        mode: THEME_DARK
-    }
-});
-
-const lightTheme = createTheme({
-    cssVariables: true,
-    palette: {
-        mode: THEME_LIGHT
-    }
-});
+const lightTheme = createTheme(MUI_THEME_LIGHT);
+const darkTheme = createTheme(MUI_THEME_DARK);
 
 function App() {
     const [colorTheme, setColorTheme] = useState(localStorage.getItem(LOCAL_COLOR_THEME) || THEME_DARK);
