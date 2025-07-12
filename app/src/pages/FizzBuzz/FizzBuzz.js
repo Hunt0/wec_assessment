@@ -1,8 +1,5 @@
 import './FizzBuzz.css';
 import {
-    FormControl,
-    TextField,
-    Grid,
     Box,
     Button,
     IconButton
@@ -11,23 +8,23 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import React, { useState }  from 'react';
 import Form from 'components/Form/Form';
 import FormOutput from 'components/FormOutput/FormOutput';
-import FizzBuzzGrid from 'components/FizzBuzzGrid/FizzBuzzGrid';
+import FieldGenerator from 'components/FieldGenerator/FieldGenerator';
 import {
     DEFAULT_FIZZ_VALUE,
     DEFAULT_BUZZ_VALUE,
     DEFAULT_FIZZ_TEXT,
     DEFAULT_BUZZ_TEXT,
-    DEFAULT_FIZZ_BUZZ_TEXT,
     DEFAULT_COMPUTE_LENGTH,
     FIZZ_VALUE_FIELD,
     BUZZ_VALUE_FIELD,
     FIZZ_TEXT_FIELD,
     BUZZ_TEXT_FIELD,
-    COMPUTE_LENGTH_FIELD
+    COMPUTE_LENGTH_FIELD,
+    FIZZ_BUZZ_FIELDS
 } from 'constants';
+import { isPositiveInteger, isText } from 'util';
 
 const initFormData = {
-    computeLength: 1,
     isValid: true,
     [FIZZ_VALUE_FIELD]: DEFAULT_FIZZ_VALUE,
     [BUZZ_VALUE_FIELD]: DEFAULT_BUZZ_VALUE,
@@ -36,17 +33,34 @@ const initFormData = {
     [COMPUTE_LENGTH_FIELD]: DEFAULT_COMPUTE_LENGTH
 };
 
+const initFieldErrors = {
+    [FIZZ_VALUE_FIELD]: false,
+    [BUZZ_VALUE_FIELD]: false,
+    [FIZZ_TEXT_FIELD]: false,
+    [BUZZ_TEXT_FIELD]: false,
+    [COMPUTE_LENGTH_FIELD]: false,
+};
+
 const FizzBuzz = () => {
     const [formData, setFormData] = useState(initFormData);
+    const [fieldErrors, setFieldErrors] = useState(initFieldErrors);
 
     const onSubmit = () => {
 
     }
 
-    const onFormChange = (fieldName, value, isValid) => {
+    const onFormChange = ({ target: { name, value } }) => {
+        let isIntegerField = name === FIZZ_VALUE_FIELD || name === BUZZ_VALUE_FIELD || name === COMPUTE_LENGTH_FIELD;
+        let isValid = isIntegerField ? isPositiveInteger(value) : isText(value);
+
+        setFieldErrors((prevData) => ({
+            ...prevData,
+            [name]: !isValid
+        }));
+
         setFormData((prevData) => ({
             ...prevData,
-            [fieldName]: value,
+            [name]: value,
             isValid
         }));
     }
@@ -58,33 +72,25 @@ const FizzBuzz = () => {
     return (
         <div className="FizzBuzz-Container">
             <header className="FizzBuzz-Header">FizzBuzz</header>
-            <Form onSubmit={onSubmit}>
-                <FizzBuzzGrid formData={formData} onFormChange={onFormChange} />
-                <Box className="FizzBuzz-Box">
-                    <FormControl className="FizzBuzz-Compute-FormControl">
-                        <TextField
-                            id="compute-length-input"
-                            label="Compute Length"
-                            name={COMPUTE_LENGTH_FIELD}
-                            type="number"
-                            defaultValue={formData.computeLength}
-                            //onChange={handleChange}
-                            inputProps={{ min: 1 }}
-                        />
-                    </FormControl>
-                    <Box className="FizzBuzz-Button-Container">
-                        <Button
-                            type="submit"
-                            variant="contained"
-                            aria-label="Submit form"
-                            disabled={!formData.isValid}
-                        >
-                            Submit
-                        </Button>
-                        <IconButton aria-label="Reset form" onClick={onReset}>
-                            <RestartAltIcon />
-                        </IconButton>
-                    </Box>
+            <Form>
+                <FieldGenerator
+                    fields={FIZZ_BUZZ_FIELDS}
+                    formData={formData}
+                    fieldErrors={fieldErrors}
+                    onFormChange={onFormChange}
+                />
+                <Box className="FizzBuzz-Form-Actions-Container">
+                    <Button
+                        onClick={onSubmit}
+                        aria-label="Submit button"
+                        variant="contained"
+                        disabled={!formData.isValid}
+                    >
+                        Submit
+                    </Button>
+                    <IconButton aria-label="Reset button" onClick={onReset}>
+                        <RestartAltIcon />
+                    </IconButton>
                 </Box>
             </Form>
         </div>
