@@ -1,10 +1,11 @@
+
 export const fizzBuzz = (
-    computeLength = 0,
-    fizzValue = 3,
-    buzzValue = 5,
-    fizzText = "Fizz",
-    buzzText = "Buzz",
-    fizzBuzzText = "FizzBuzz"
+    computeLength,
+    fizzValue,
+    buzzValue,
+    fizzText,
+    buzzText,
+    fizzBuzzText
 ) => {
     let fizzBuzzResult = [];
 
@@ -13,7 +14,7 @@ export const fizzBuzz = (
 
         if (computeIndex % fizzValue === 0 && computeIndex % buzzValue === 0) {
             fizzBuzzResult.push(fizzBuzzText);
-        } else if (computeIndex % fuzzValue === 0) {
+        } else if (computeIndex % fizzValue === 0) {
             fizzBuzzResult.push(fizzText);
         } else if (computeIndex % buzzValue === 0) {
             fizzBuzzResult.push(buzzText);
@@ -25,10 +26,21 @@ export const fizzBuzz = (
     return fizzBuzzResult;
 }
 
-export const fibonacci = (computeLength = 0, x = 0, y = 1) => {
+export const fibonacci = (computeLength, x, y) => {
 
 }
 
 export const fizzBonacci = () => {
 
+}
+
+export const isPositiveInteger = (value) => {
+    const regex = /^\d+$/;
+    const ret = regex.test(value);
+    return regex.test(value);
+}
+
+export const isText = (value) => {
+    const regex = new RegExp('^[A-Za-z]+$');
+    return regex.test(value);
 }

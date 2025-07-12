@@ -1,0 +1,31 @@
+.FizzBuzz-Container {
+    height: 100%;
+    width: 100%;
+    color: var(--mui-palette-text-primary);
+}
+
+.FizzBuzz-Header {
+    font-size: 2.4rem;
+    margin-bottom: 24px;
+}
+
+.FizzBuzz-Box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.FizzBuzz-Compute-FormControl {
+    width: 30%; 
+}
+
+.FizzBuzz-Submit-Button {
+    font-size: 1rem;
+}
+
+.FizzBuzz-Button-Container {
+    display: flex;
+    gap: 1rem;
+}

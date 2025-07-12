@@ -2,7 +2,8 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useMemo } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material';
-import Layout from './components/Layout/Layout';
+import Layout from 'components/Layout/Layout';
+import FizzBuzz from 'pages/FizzBuzz/FizzBuzz';
 import { THEME_LIGHT, THEME_DARK, LOCAL_COLOR_THEME } from 'constants';
 
 const darkTheme = createTheme({
@@ -41,6 +42,7 @@ function App() {
                         element={
                             <Layout onThemeChange={onThemeChange} colorTheme={colorTheme} />
                         }>
+                        <Route path="/fizz-buzz" exact element={<FizzBuzz />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

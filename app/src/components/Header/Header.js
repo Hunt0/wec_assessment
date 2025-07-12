@@ -11,7 +11,7 @@ const Header = ({onThemeChange, colorTheme}) => {
         <div className="Header-Container">
             <header className="Header">WEC Technical Assessment</header>
             <Tooltip title="Change Light/Dark Mode">
-                <IconButton onClick={onThemeChange}>
+                <IconButton aria-label="Change color theme" onClick={onThemeChange}>
                     {colorTheme === THEME_LIGHT ? (
                         <DarkModeIcon />    
                     ) : (
