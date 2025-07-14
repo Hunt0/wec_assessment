@@ -18,8 +18,6 @@ export const COMPUTE_LENGTH_FIELD = "computeLength";
 export const POSITIVE_INTEGER_ERROR = "Positive integers only";
 export const ALPHA_CHAR_ERROR = "Alphabetical characters only";
 export const SEQUENCE_ERROR = "Sequence values must be non-negative.  F(0) must be less than F(1).";
-export const POS_INT_TYPE = "POS_INT";
-export const ALPHA_TEXT_TYPE = "ALPHA_TEXT";
 
 export const MUI_THEME_LIGHT = {
     cssVariables: true,
