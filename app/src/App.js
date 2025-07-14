@@ -1,8 +1,9 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material';
 import Layout from 'components/Layout/Layout';
+import Home from 'pages/Home/Home';
 import FizzBuzz from 'pages/FizzBuzz/FizzBuzz';
 import Fibonacci from 'pages/Fibonacci/Fibonacci';
 import FizzBonacci from 'pages/FizzBonacci/FizzBonacci';
@@ -39,9 +40,11 @@ function App() {
                         element={
                             <Layout onThemeChange={onThemeChange} colorTheme={colorTheme} />
                         }>
+                        <Route index element={<Home />} />
                         <Route path="/fizz-buzz" exact element={<FizzBuzz />} />
                         <Route path="/fibonacci" exact element={<Fibonacci />} />
                         <Route path="/fizz-bonacci" exact element={<FizzBonacci />} />
+                        <Route path="*" element={<Navigate to="/" replace />} /> 
                     </Route>
                 </Routes>
             </BrowserRouter>

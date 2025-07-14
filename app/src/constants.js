@@ -80,7 +80,6 @@ export const FIZZ_BUZZ_FIELDS = [
         id: "fizz-value",
         name: FIZZ_VALUE_FIELD,
         label: "Fizz Value",
-        type: POS_INT_TYPE, 
         helperText: POSITIVE_INTEGER_ERROR,
         inputProps: {
             inputMode: "numeric",
@@ -94,7 +93,6 @@ export const FIZZ_BUZZ_FIELDS = [
         id: "buzz-value",
         name: BUZZ_VALUE_FIELD,
         label: "Buzz Value",
-        type: POS_INT_TYPE, 
         helperText: POSITIVE_INTEGER_ERROR,
         inputProps: {
             inputMode: "numeric",
@@ -108,7 +106,6 @@ export const FIZZ_BUZZ_FIELDS = [
         id: "fizz-text",
         name: FIZZ_TEXT_FIELD,
         label: "Fizz Text",
-        type: ALPHA_TEXT_TYPE,
         helperText: ALPHA_CHAR_ERROR,
         inputProps: {
             inputMode: "text",
@@ -119,7 +116,6 @@ export const FIZZ_BUZZ_FIELDS = [
         id: "buzz-text",
         name: BUZZ_TEXT_FIELD,
         label: "Buzz Text",
-        type: ALPHA_TEXT_TYPE,
         helperText: ALPHA_CHAR_ERROR,
         inputProps: {
             inputMode: "text",
@@ -130,7 +126,6 @@ export const FIZZ_BUZZ_FIELDS = [
         id: "compute-length",
         name: COMPUTE_LENGTH_FIELD,
         label: "Compute Length",
-        type: POS_INT_TYPE,
         helperText: POSITIVE_INTEGER_ERROR,
         inputProps: {
             inputMode: "numeric",
@@ -147,7 +142,6 @@ export const FIBONACCI_FIELDS = [
         id: "fib-func-zero-value",
         name: FIB_FUNC_ZERO_VALUE_FIELD,
         label: "F(0)",
-        type: POS_INT_TYPE, 
         helperText: SEQUENCE_ERROR,
         inputProps: {
             inputMode: "numeric",
@@ -161,7 +155,6 @@ export const FIBONACCI_FIELDS = [
         id: "fib-func-one-value",
         name: FIB_FUNC_ONE_VALUE_FIELD,
         label: "F(1)",
-        type: POS_INT_TYPE, 
         helperText: SEQUENCE_ERROR,
         inputProps: {
             inputMode: "numeric",
@@ -175,7 +168,6 @@ export const FIBONACCI_FIELDS = [
         id: "compute-length",
         name: COMPUTE_LENGTH_FIELD,
         label: "Compute Length",
-        type: POS_INT_TYPE,
         helperText: POSITIVE_INTEGER_ERROR,
         inputProps: {
             inputMode: "numeric",
@@ -192,7 +184,6 @@ export const FIZZ_BONACCI_FIELDS = [
         id: "fib-func-zero-value",
         name: FIB_FUNC_ZERO_VALUE_FIELD,
         label: "F(0)",
-        type: POS_INT_TYPE, 
         helperText: SEQUENCE_ERROR,
         inputProps: {
             inputMode: "numeric",
@@ -206,7 +197,6 @@ export const FIZZ_BONACCI_FIELDS = [
         id: "fib-func-one-value",
         name: FIB_FUNC_ONE_VALUE_FIELD,
         label: "F(1)",
-        type: POS_INT_TYPE, 
         helperText: SEQUENCE_ERROR,
         inputProps: {
             inputMode: "numeric",
@@ -220,7 +210,6 @@ export const FIZZ_BONACCI_FIELDS = [
         id: "fizz-value",
         name: FIZZ_VALUE_FIELD,
         label: "Fizz Value",
-        type: POS_INT_TYPE, 
         helperText: POSITIVE_INTEGER_ERROR,
         inputProps: {
             inputMode: "numeric",
@@ -234,7 +223,6 @@ export const FIZZ_BONACCI_FIELDS = [
         id: "buzz-value",
         name: BUZZ_VALUE_FIELD,
         label: "Buzz Value",
-        type: POS_INT_TYPE, 
         helperText: POSITIVE_INTEGER_ERROR,
         inputProps: {
             inputMode: "numeric",
@@ -248,7 +236,6 @@ export const FIZZ_BONACCI_FIELDS = [
         id: "fizz-text",
         name: FIZZ_TEXT_FIELD,
         label: "Fizz Text",
-        type: ALPHA_TEXT_TYPE,
         helperText: ALPHA_CHAR_ERROR,
         inputProps: {
             inputMode: "text",
@@ -259,7 +246,6 @@ export const FIZZ_BONACCI_FIELDS = [
         id: "buzz-text",
         name: BUZZ_TEXT_FIELD,
         label: "Buzz Text",
-        type: ALPHA_TEXT_TYPE,
         helperText: ALPHA_CHAR_ERROR,
         inputProps: {
             inputMode: "text",
@@ -270,7 +256,6 @@ export const FIZZ_BONACCI_FIELDS = [
         id: "compute-length",
         name: COMPUTE_LENGTH_FIELD,
         label: "Compute Length",
-        type: POS_INT_TYPE,
         helperText: POSITIVE_INTEGER_ERROR,
         inputProps: {
             inputMode: "numeric",
