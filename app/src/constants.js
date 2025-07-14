@@ -33,7 +33,7 @@ export const MUI_THEME_LIGHT = {
         },
         background: {
             default: '#FFFFFF',
-            paper: '#F5F5F5', // Slightly off-white for paper
+            paper: '#F5F5F5',
         },
         text: {
             primary: '#000000',
