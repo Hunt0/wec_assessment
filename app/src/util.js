@@ -87,7 +87,7 @@ const isInteger = (value) => {
 
 export const isPositiveInteger = (value) => {
     const regex = /^\d+$/;
-    return regex.test(value);
+    return regex.test(value) && parseInt(value) > 0;
 }
 
 export const isAlphaText = (value) => {
