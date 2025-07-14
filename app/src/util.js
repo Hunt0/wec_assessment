@@ -8,8 +8,7 @@ export const computeFizzBuzz = (
     let result = [];
 
     for (let i = 0; i < computeLength; i++) {
-        const computeValue = i + 1;
-        const value = getFizzBuzzValue(computeValue, fizzValue, buzzValue, fizzText, buzzText);
+        const value = getFizzBuzzValue(i, fizzValue, buzzValue, fizzText, buzzText);
 
         result.push(value);
     }
