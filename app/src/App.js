@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material';
 import Layout from 'components/Layout/Layout';
 import FizzBuzz from 'pages/FizzBuzz/FizzBuzz';
+import Fibonacci from 'pages/Fibonacci/Fibonacci';
+import FizzBonacci from 'pages/FizzBonacci/FizzBonacci';
 import {
     THEME_LIGHT,
     THEME_DARK,
@@ -38,6 +40,8 @@ function App() {
                             <Layout onThemeChange={onThemeChange} colorTheme={colorTheme} />
                         }>
                         <Route path="/fizz-buzz" exact element={<FizzBuzz />} />
+                        <Route path="/fibonacci" exact element={<Fibonacci />} />
+                        <Route path="/fizz-bonacci" exact element={<FizzBonacci />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

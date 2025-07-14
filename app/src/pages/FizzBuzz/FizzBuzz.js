@@ -1,14 +1,6 @@
-import './FizzBuzz.css';
-import {
-    Box,
-    Button,
-    IconButton
-} from '@mui/material';
-import RestartAltIcon from '@mui/icons-material/RestartAlt';
-import React, { useState }  from 'react';
-import Form from 'components/Form/Form';
+import React, { useState } from 'react';
+import AlgoForm from 'components/AlgoForm/AlgoForm';
 import FormOutput from 'components/FormOutput/FormOutput';
-import FieldGenerator from 'components/FieldGenerator/FieldGenerator';
 import {
     DEFAULT_FIZZ_VALUE,
     DEFAULT_BUZZ_VALUE,
@@ -22,10 +14,9 @@ import {
     COMPUTE_LENGTH_FIELD,
     FIZZ_BUZZ_FIELDS
 } from 'constants';
-import { isPositiveInteger, isAlphaText } from 'util';
+import { isPositiveInteger, isAlphaText, computeFizzBuzz } from 'util';
 
-const initFormData = {
-    isValid: true,
+const defaultFormData = {
     [FIZZ_VALUE_FIELD]: DEFAULT_FIZZ_VALUE,
     [BUZZ_VALUE_FIELD]: DEFAULT_BUZZ_VALUE,
     [FIZZ_TEXT_FIELD]: DEFAULT_FIZZ_TEXT,
@@ -33,68 +24,45 @@ const initFormData = {
     [COMPUTE_LENGTH_FIELD]: DEFAULT_COMPUTE_LENGTH
 };
 
-const initFieldErrors = {
-    [FIZZ_VALUE_FIELD]: false,
-    [BUZZ_VALUE_FIELD]: false,
-    [FIZZ_TEXT_FIELD]: false,
-    [BUZZ_TEXT_FIELD]: false,
-    [COMPUTE_LENGTH_FIELD]: false,
-};
-
 const FizzBuzz = () => {
-    const [formData, setFormData] = useState(initFormData);
-    const [fieldErrors, setFieldErrors] = useState(initFieldErrors);
+    const [computeResult, setComputeResult] = useState(null);
 
-    const onSubmit = () => {
+    const onValidate = (changedFormData) => {
+        let fieldErrors = {};
+        for (let key in changedFormData) {
+            if (key === FIZZ_TEXT_FIELD || key === BUZZ_TEXT_FIELD) {
+                fieldErrors[key] = !isAlphaText(changedFormData[key]);
+            } else {
+                fieldErrors[key] = !isPositiveInteger(changedFormData[key]);
+            }
+        }
 
+        return fieldErrors;
     }
 
-    const onFormChange = ({ target: { name, value } }) => {
-        let isIntegerField = name === FIZZ_VALUE_FIELD || name === BUZZ_VALUE_FIELD || name === COMPUTE_LENGTH_FIELD;
-        let isValid = isIntegerField ? isPositiveInteger(value) : isAlphaText(value);
+    const onCompute = (formData) => {
+        const computeLength = parseInt(formData[COMPUTE_LENGTH_FIELD]);
+        const fizzValue = parseInt(formData[FIZZ_VALUE_FIELD]);
+        const buzzValue = parseInt(formData[BUZZ_VALUE_FIELD]);
+        const fizzText = formData[FIZZ_TEXT_FIELD];
+        const buzzText = formData[BUZZ_TEXT_FIELD];
 
-        setFieldErrors((prevData) => ({
-            ...prevData,
-            [name]: !isValid
-        }));
+        const result = computeFizzBuzz(computeLength, fizzValue, buzzValue, fizzText, buzzText);
 
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-            isValid
-        }));
-    }
-
-    const onReset = () => {
-        setFormData(initFormData);
-        setFieldErrors(initFieldErrors);
+        setComputeResult(result);
     }
 
     return (
-        <div className="FizzBuzz-Container">
-            <h1 className="FizzBuzz-Header">FizzBuzz</h1>
-            <Form>
-                <FieldGenerator
-                    fields={FIZZ_BUZZ_FIELDS}
-                    formData={formData}
-                    fieldErrors={fieldErrors}
-                    onFormChange={onFormChange}
-                />
-                <Box className="FizzBuzz-Form-Actions-Container">
-                    <Button
-                        onClick={onSubmit}
-                        aria-label="Submit button"
-                        variant="contained"
-                        disabled={!formData.isValid}
-                    >
-                        Submit
-                    </Button>
-                    <IconButton aria-label="Reset button" onClick={onReset}>
-                        <RestartAltIcon />
-                    </IconButton>
-                </Box>
-            </Form>
-        </div>
+        <>
+            <AlgoForm
+                title="FizzBuzz"
+                fieldsConfig={FIZZ_BUZZ_FIELDS}
+                defaultFormData={defaultFormData}
+                onValidate={onValidate}
+                onCompute={onCompute}
+            />
+            {computeResult && <FormOutput>{computeResult.join(", ")}</FormOutput>}
+        </>
     );
 }
 
