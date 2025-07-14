@@ -9,6 +9,7 @@
     color: var(--mui-palette-text-primary);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 15px;
     border-bottom: 1px solid var(--mui-palette-divider);
+    z-index: 1000;
 }
 
 .Header-Left {
